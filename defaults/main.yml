@@ -1,2 +1,7 @@
 ---
 vector_config_file: "vector.toml.j2"
+vector_service_file: "vector.service.j2"
+vector_bin_path: "/usr/bin/"
+vector_config_path: "/etc/vector"
+vector_env_path: "/var/lib/vector"
+vector_service_path: "/etc/systemd/system"

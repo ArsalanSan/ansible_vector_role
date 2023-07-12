@@ -1,7 +1,7 @@
 Role Name
 =========
 
-This role can install Vector on Centos 7
+This role can install Vector
 
 Role Variables
 --------------

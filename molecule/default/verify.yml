@@ -1,0 +1,18 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: check service vector
+    service:
+      name: vector
+      state: started
+    register: service_status
+  - name: if vector not started
+    assert:
+      that:
+        - service_status.changed is false
+      fail_msg: "Not started"
+      success_msg: "Started"
