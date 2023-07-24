@@ -12,29 +12,26 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     command: "/usr/sbin/init"
+    capabilities:
+      - SYS_ADMIN
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
     pre_build_image: true
-#    privileged: true
-#  - name: centos7
-#    image: registry.access.redhat.com/ubi7/ubi-init
-#    privileged: true
-#    volumes:
-#      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-#    command: "/sbin/init"
-#    pre_build_image: true
   - name: ubuntu
     image: docker.io/geerlingguy/docker-ubuntu2204-ansible
     pre_build_image: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    capabilities:
+      - SYS_ADMIN
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
     command: "/lib/systemd/systemd"
-#    privileged: true
 provisioner:
   name: ansible
-#  config_options:
-#    defaults:
-#      interpreter_python: auto_silent
-#      callback_whitelist: profile_tasks, timer, yaml
-#    ssh_connection:
-#      pipelining: false
 verifier:
   name: ansible
