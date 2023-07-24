@@ -1,0 +1,4 @@
+---
+- name: vector
+  src: https://github.com/ArsalanSan/ansible_vector_role.git
+  version: main
